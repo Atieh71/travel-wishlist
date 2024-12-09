@@ -1,38 +1,344 @@
+
+/* General Styles */
+body {
+  font-family: 'Kalam', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%; 
+  background-color: #f9f5cf; 
+  position: relative;
+  overflow: auto;
+}
+
+body::before {
+  content: ""; /* Creates the pseudo-element for the background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/public/pics/home.jpg');
+  background-size: cover; 
+  background-position: center; 
+  filter: blur(8px); 
+  opacity: 0.4; 
+  z-index: -1; 
+}
+
+h1, h2, h3 {
+  font-family: 'Kalam', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Kalam', sans-serif;
+  font-weight: 400; 
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding:5px 20px 5px 20px;
+  box-sizing: border-box;
+}
+
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #976860;
+  padding: 10px 20px;
+  position: sticky;  
+  top: 0;            
+  z-index: 1000;   
+}
+
+.navbar-brand h1 {
+  color: white;
+  margin: 0;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.navbar-links a:hover {
+  background-color: #555;
+}
+
+/* Home Page Styles */
+.home {
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.home h1{
+  margin:30px auto 0;
+}
+.home p{
+  margin: 0 auto 0;
+  font-size: large;
+}
+
+.home img {
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+  margin-top: 20px;
+
+}
+
+/* About Page Styles */
+.about {
+  padding: 50px;
+  text-align: center;
+}
+.about h2{
+  color: #333;
+  font-size: 2rem;
+  margin-top: 0;
+}
+.about h3{
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+.about p{
+  font-size: large;
+}
+
+.dream-destination {
+  margin-top: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dream-image {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dream-destination p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Contact Page Styles */
+.contact {
+  padding: 0;
+  text-align: center;
+}
+
+.contact h2, .contact h3 {
+  color: #333;
+  font-size: 2rem;
+}
+
+.contact form {
+  width: 50%;
+  margin-left: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.contact input,
+.contact textarea {
+  width: 50%;
+  margin-left: 25%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact textarea { 
+  height: 100px;
+}
+
+.contact input {
+  height: 30px;
+}
+
+.contact button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 20%;
+  margin-left: 40%;
+}
+
+.contact button:hover {
+  background-color: #45a049;
+}
+
+.contact p {
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.contact ul {
+  list-style-type: disc;   
+  padding: 0;            
+  margin: 20px auto;     
+  width: 50%;
+  text-align: left;     
+}
+
+.contact li {
+  padding-left: 20px;    
+  text-align: left;      
+  margin-bottom: 10px; 
+}
+/* Wishlist Page Styles */
+
+.wishlist-page {
+  padding: 20px;
+  text-align: center;
+}
+
+.wishlist-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.add-destination {
+  margin: 20px 0;
+}
+
+.input-field {
+  padding: 10px;
+  width: 250px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.empty-message {
+  color: gray;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 10px;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-content {
+  padding: 10px;
+  text-align: center;
+}
+
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
   color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.delete-button:hover {
+  background-color: #e63939;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Footer Styles */
+footer {
+  background-color: #BEBB97;
+  color: #000;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  position: sticky; 
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: auto; 
 }
