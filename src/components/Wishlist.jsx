@@ -31,7 +31,10 @@ function Wishlist({ destinations, onAddDestination, onDelete }) {
         `https://api.unsplash.com/search/photos?query=${destination}&client_id=${UNSPLASH_API_KEY}`
       );
 
-      const imageUrl = imageResponse.data.results[0]?.urls.regular || "https://via.placeholder.com/150";
+      const results = imageResponse.data.results;
+      const randomIndex = Math.floor(Math.random() * results.length);
+      const imageUrl = results[randomIndex]?.urls.regular || "https://via.placeholder.com/150";
+
 
       const newDestination = {
         name: destination,
